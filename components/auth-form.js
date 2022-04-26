@@ -38,6 +38,12 @@ export default function AuthForm() {
     console.log(user);
   };
 
+  const logOut = async () => {
+    const user = await axios.get("/api/auth/logout");
+
+    console.log(user);
+  };
+
   const handleInputChange = (event) => {
     setInputFields({ ...inputFields, [event.target.name]: event.target.value });
   };
@@ -66,6 +72,7 @@ export default function AuthForm() {
         <button>Send</button>
       </form>
       <button onClick={getUser}>Get User</button>
+      <button onClick={logOut}>Log Out</button>
     </div>
   );
 }
